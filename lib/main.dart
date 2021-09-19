@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:free_ticket_system_frontend/view/home.dart';
+import 'package:free_ticket_system_frontend/view/login.dart';
+import 'package:free_ticket_system_frontend/view/register.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,8 +16,8 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       routes: {
         '/': (context) => const HomePage(),
-        // '/login': (context) => Login(),
-        // '/register': (context) => Register(),
+        '/login': (context) => const Login(),
+        '/register': (context) => const Register(),
       }
     );
   }
