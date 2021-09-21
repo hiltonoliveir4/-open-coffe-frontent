@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:free_ticket_system_frontend/view/autenticate.dart';
 import 'package:free_ticket_system_frontend/view/home.dart';
 import 'package:free_ticket_system_frontend/view/login.dart';
 import 'package:free_ticket_system_frontend/view/register.dart';
@@ -18,6 +19,7 @@ class MyApp extends StatelessWidget {
         '/': (context) => const HomePage(),
         '/login': (context) => const Login(),
         '/register': (context) => const Register(),
+        '/autenticate': (context) => const Autenticate(),
       }
     );
   }

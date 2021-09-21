@@ -48,6 +48,7 @@ class _NewRegister extends State<Register> {
                   child: TextFormField(
                     controller: nome,
                     autofocus: false,
+                    keyboardType: TextInputType.name,
                     decoration: InputDecoration(
                       prefixIcon: const Icon(
                             Icons.person,
@@ -83,6 +84,7 @@ class _NewRegister extends State<Register> {
                   child: TextFormField(
                     controller: email,
                     autofocus: false,
+                    keyboardType: TextInputType.emailAddress,
                     decoration: InputDecoration(
                       prefixIcon: const Icon(
                             Icons.mail,
@@ -231,6 +233,7 @@ class _NewRegister extends State<Register> {
                         if (_formKey.currentState!.validate()) {
                           //enviar para a api e mostrar o circular progress bar
                           _submit(nome.text, email.text, password.text);
+                          Navigator.pushNamed(context, '/autenticate');
                         }
                       },
                     ),

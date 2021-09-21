@@ -44,6 +44,7 @@ class _NewLogin extends State<Login> {
                 child: TextFormField(
                   controller: email,
                   autofocus: false,
+                  keyboardType: TextInputType.emailAddress,
                   decoration: InputDecoration(
                     prefixIcon: const Icon(
                           Icons.mail,
