@@ -71,7 +71,10 @@ class _NewAutenticate extends State<Autenticate>{
           padding: const EdgeInsets.all(4.0),
           child: SizedBox(
               width: 10,
-              child: Image.asset('images/logo_sem_nome.png'),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Image.asset('images/logo_sem_icone.png'),
+              ),
             ) 
           ),
         ),
@@ -96,6 +99,27 @@ class _NewAutenticate extends State<Autenticate>{
               ),
             ),
             formAutenticate(),
+            Container(
+                decoration: const BoxDecoration(
+                    color: Colors.black45,
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(40.0),
+                    )),
+                width: 220.0,
+                height: 45.0,
+                child: Padding(
+                  padding: const EdgeInsets.all(4.0),
+                  child: TextButton(
+                    child: const Text(
+                      "CADASTRE-SE",
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/user-home');
+                    },
+                  ),
+                ),
+              )
           ],
         ),
       )

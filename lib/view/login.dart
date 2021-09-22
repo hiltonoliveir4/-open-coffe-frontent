@@ -143,6 +143,7 @@ class _NewLogin extends State<Login> {
                     if (_formKey.currentState!.validate()) {
                       //enviar para a api e mostrar o circular progress bar
                       _submit(email.text, password.text);
+                      Navigator.pushNamed(context, '/user-home');
                     }
                   },
                   ),

@@ -3,6 +3,7 @@ import 'package:free_ticket_system_frontend/view/autenticate.dart';
 import 'package:free_ticket_system_frontend/view/home.dart';
 import 'package:free_ticket_system_frontend/view/login.dart';
 import 'package:free_ticket_system_frontend/view/register.dart';
+import 'package:free_ticket_system_frontend/view/user_home.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,6 +21,7 @@ class MyApp extends StatelessWidget {
         '/login': (context) => const Login(),
         '/register': (context) => const Register(),
         '/autenticate': (context) => const Autenticate(),
+        '/user-home': (context) => const UserHome(),
       }
     );
   }
