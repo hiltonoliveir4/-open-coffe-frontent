@@ -1,8 +1,30 @@
 import 'package:flutter/material.dart';
 
-Widget buildCard(String name, String price, String imgPath, context) {
+class BuildCard extends StatefulWidget{
+  final String imgPath;
+  final String price;
+  final String name;
+  const BuildCard({Key? key,
+  required this.imgPath,
+  required this.price,
+  required this.name})
+  : super(key: key);
+
+  @override
+  _NewBuildCard createState() => _NewBuildCard(imgPath, price, name);
+}
+
+class _NewBuildCard extends State<BuildCard>{
+  final String imgPath;
+  final String price;
+  final String name;
   var qtde = 0;
-  return Padding(
+
+  _NewBuildCard(this.imgPath, this.price, this.name);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
     padding: const EdgeInsets.only(top: 5.0, bottom: 5.0, left: 5.0, right: 5.0),
     child: Container(
       decoration: BoxDecoration(
@@ -54,7 +76,9 @@ Widget buildCard(String name, String price, String imgPath, context) {
                   IconButton(
                     onPressed: (){
                       if(qtde > 0){
-                        qtde--;
+                        setState(() {
+                          qtde--;
+                        });
                       }
                     }, 
                     icon: const Icon(Icons.remove,
@@ -68,7 +92,9 @@ Widget buildCard(String name, String price, String imgPath, context) {
                         fontSize: 12.0)),
                   IconButton(
                     onPressed: (){
-                      qtde++;
+                      setState(() {
+                          qtde++;
+                        });
                     }, 
                     icon: const Icon(Icons.add,
                         color: Color(0xFFFF2222), size: 12.0),
@@ -100,4 +126,5 @@ Widget buildCard(String name, String price, String imgPath, context) {
       )
     )
   );
+  }
 }

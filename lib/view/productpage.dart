@@ -25,28 +25,29 @@ class _NewProductPage extends State<ProductPage>{
                 crossAxisSpacing: 10.0,
                 mainAxisSpacing: 15.0,
                 childAspectRatio: 0.8,
-                children:[
-                  buildCard("Lasanha", "7.00", "assets/images/lasanha.png", context),
-                  buildCard("Lasanha", "7.00", "assets/images/lasanha.png", context),
-                  buildCard("Lasanha", "7.00", "assets/images/lasanha.png", context),
-                  buildCard("Lasanha", "7.00", "assets/images/lasanha.png", context),
-                  buildCard("Lasanha", "7.00", "assets/images/lasanha.png", context),
-                  buildCard("Lasanha", "7.00", "assets/images/lasanha.png", context),
-                  buildCard("Lasanha", "7.00", "assets/images/lasanha.png", context),
-                  buildCard("Lasanha", "7.00", "assets/images/lasanha.png", context),
-                  buildCard("Lasanha", "7.00", "assets/images/lasanha.png", context),
-                  buildCard("Lasanha", "7.00", "assets/images/lasanha.png", context),
-                  buildCard("Lasanha", "7.00", "assets/images/lasanha.png", context),
-                  buildCard("Lasanha", "7.00", "assets/images/lasanha.png", context),
-                  buildCard("Lasanha", "7.00", "assets/images/lasanha.png", context),
-                  buildCard("Lasanha", "7.00", "assets/images/lasanha.png", context),
-                  buildCard("Lasanha", "7.00", "assets/images/lasanha.png", context),
-                  buildCard("Lasanha", "7.00", "assets/images/lasanha.png", context),
+                children:const [
+                  BuildCard(name:"Lasanha", price: "7.00", imgPath: "assets/images/lasanha.png"),
+                  BuildCard(name:"Lasanha", price: "7.00", imgPath: "assets/images/lasanha.png"),
+                  BuildCard(name:"Lasanha", price: "7.00", imgPath: "assets/images/lasanha.png"),
+                  BuildCard(name:"Lasanha", price: "7.00", imgPath: "assets/images/lasanha.png"),
+                  BuildCard(name:"Lasanha", price: "7.00", imgPath: "assets/images/lasanha.png"),
+                  BuildCard(name:"Lasanha", price: "7.00", imgPath: "assets/images/lasanha.png"),
+                  BuildCard(name:"Lasanha", price: "7.00", imgPath: "assets/images/lasanha.png"),
+                  BuildCard(name:"Lasanha", price: "7.00", imgPath: "assets/images/lasanha.png"),
+                  BuildCard(name:"Lasanha", price: "7.00", imgPath: "assets/images/lasanha.png"),
                 ]
               )
           ),
         ],
       ),
+      floatingActionButton: 
+        FloatingActionButton(
+          onPressed: (){
+            //ir para o carrinho e levar os dados adicionados
+          },
+          child: const Icon(Icons.shopping_cart),
+          backgroundColor: const Color(0xFFFF2222),
+        ),
     );
   }
 }
