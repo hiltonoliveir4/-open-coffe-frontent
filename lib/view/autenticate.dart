@@ -72,8 +72,8 @@ class _NewAutenticate extends State<Autenticate>{
           child: SizedBox(
               width: 10,
               child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Image.asset('images/logo_sem_icone.png'),
+                padding: const EdgeInsets.all(3.0),
+                child: Image.asset('assets/images/logo_sem_icone.png'),
               ),
             ) 
           ),
@@ -88,7 +88,7 @@ class _NewAutenticate extends State<Autenticate>{
               width: 300,
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Image.asset('images/logo_sem_icone.png'),
+                child: Image.asset('assets/images/logo_sem_icone.png'),
               ),
             ),
             const Text(

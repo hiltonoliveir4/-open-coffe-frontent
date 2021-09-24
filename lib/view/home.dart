@@ -15,7 +15,7 @@ class HomePage extends StatelessWidget {
               width: 220,
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Image.asset('images/logo.png'),
+                child: Image.asset('assets/images/logo.png'),
               ),
             ),
             Container(
