@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:free_ticket_system_frontend/model/submit.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -13,11 +14,6 @@ class _NewLogin extends State<Login> {
 
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
-
-  void _submit(String login, String senha) {
-    //envia login e senha pra api
-    print("$login - $senha");
-  }
 
   @override
   void dispose(){
@@ -142,8 +138,7 @@ class _NewLogin extends State<Login> {
                     onPressed: () {
                     if (_formKey.currentState!.validate()) {
                       //enviar para a api e mostrar o circular progress bar
-                      _submit(email.text, password.text);
-                      Navigator.pushNamed(context, '/user-home');
+                      Submit().submitLogin(email.text, password.text, context);
                     }
                   },
                   ),
@@ -194,18 +189,19 @@ class _NewLogin extends State<Login> {
 
       // ignore: todo
       //TODO: ADICIONAR FUTURE BUILDER PARA LOGIN QUANDO FOR USAR A API!
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          SizedBox(
-              width: 300,
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Image.asset('assets/images/logo_sem_icone.png'),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            SizedBox(
+                width: 300,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Image.asset('assets/images/logo_sem_icone.png'),
+                ),
               ),
-            ),
-          _formLogin(),
-        ],
+            _formLogin(),
+          ],
+        ),
       )
     );
   }

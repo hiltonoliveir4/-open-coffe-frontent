@@ -1,5 +1,8 @@
+// ignore_for_file: must_call_super
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:free_ticket_system_frontend/model/submit.dart';
 
 class Autenticate extends StatefulWidget {
   const Autenticate({Key? key}) : super(key: key);
@@ -13,8 +16,12 @@ class _NewAutenticate extends State<Autenticate>{
   final autenticate = TextEditingController();
 
   @override
-  Widget build(BuildContext context) {
+  void initState() {
+    Submit().sendEmail();
+  }
 
+  @override
+  Widget build(BuildContext context) {
     Widget formAutenticate(){
       return Form(
           key: autenticateFormKey,
@@ -57,10 +64,10 @@ class _NewAutenticate extends State<Autenticate>{
                       return null;
                     },
                   ),
-                ),
+              ),
             ],
           ),
-        );
+      );
     }
     
     return Scaffold(
@@ -101,25 +108,47 @@ class _NewAutenticate extends State<Autenticate>{
             formAutenticate(),
             Container(
                 decoration: const BoxDecoration(
-                    color: Colors.black45,
+                    color: Colors.red,
                     borderRadius: BorderRadius.all(
                       Radius.circular(40.0),
                     )),
-                width: 220.0,
+                width: 250.0,
                 height: 45.0,
                 child: Padding(
                   padding: const EdgeInsets.all(4.0),
                   child: TextButton(
                     child: const Text(
-                      "CADASTRE-SE",
+                      "Confirmar Cadastro",
                       style: TextStyle(color: Colors.white),
                     ),
                     onPressed: () {
-                      Navigator.pushNamed(context, '/user-home');
+                      Submit().submiteAutentiacteCode(autenticate.text, context);
                     },
                   ),
                 ),
-              )
+            ),
+            const SizedBox(height: 10),
+            Container(
+                decoration: const BoxDecoration(
+                    color: Colors.black45,
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(40.0),
+                    )),
+                width: 180.0,
+                height: 45.0,
+                child: Padding(
+                  padding: const EdgeInsets.all(4.0),
+                  child: TextButton(
+                    child: const Text(
+                      "Reenviar email",
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    onPressed: () {
+                      Submit().sendEmail();
+                    },
+                  ),
+                ),
+            )
           ],
         ),
       )

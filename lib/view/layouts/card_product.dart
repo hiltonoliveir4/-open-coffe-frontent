@@ -1,26 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:free_ticket_system_frontend/view/layouts/show_dialog.dart';
 
 class BuildCard extends StatefulWidget{
   final String imgPath;
   final String price;
   final String name;
+  final int id;
   const BuildCard({Key? key,
   required this.imgPath,
   required this.price,
+  required this.id,
   required this.name})
   : super(key: key);
 
   @override
-  _NewBuildCard createState() => _NewBuildCard(imgPath, price, name);
+  _NewBuildCard createState() => _NewBuildCard(imgPath, price, name, id);
 }
 
 class _NewBuildCard extends State<BuildCard>{
   final String imgPath;
   final String price;
   final String name;
+  final int id;
   var qtde = 0;
 
-  _NewBuildCard(this.imgPath, this.price, this.name);
+  _NewBuildCard(this.imgPath, this.price, this.name, this.id);
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +55,7 @@ class _NewBuildCard extends State<BuildCard>{
                     )
             ),
             const SizedBox(height: 7.0),
-            Text(price,
+            Text("R\$ $price",
               style: const TextStyle(
                   color: Color(0xFFFF2222),
                   fontFamily: 'Montserrat',
@@ -104,7 +108,15 @@ class _NewBuildCard extends State<BuildCard>{
             ),
             TextButton(
               onPressed: (){
-                print(qtde);
+                if(qtde > 0){
+                  showMyDialog("Produto adicionado ao carrinho", "", context);
+                  setState(() {
+                    qtde = 0;
+                  });
+                } else {
+                  showMyDialog("Falha ao adicionar produto","A quantidade a ser adicionada no pedido não pode ser igual a 0", context);
+                }
+                
               },
               child: Padding(
                 padding: const EdgeInsets.only(left: 5.0, right: 5.0),

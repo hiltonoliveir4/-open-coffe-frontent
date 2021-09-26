@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:free_ticket_system_frontend/model/submit.dart';
 
 class Register extends StatefulWidget {
   const Register({Key? key}) : super(key: key);
@@ -16,11 +17,6 @@ class _NewRegister extends State<Register> {
   final email = TextEditingController();
   final confirmPassword = TextEditingController();
   final password = TextEditingController();
-
-  _submit(String nome, String email, String senha){
-    // ignore: avoid_print
-    print("$nome, $email, $senha");
-  }
 
   @override
   void dispose(){
@@ -232,8 +228,7 @@ class _NewRegister extends State<Register> {
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {
                           //enviar para a api e mostrar o circular progress bar
-                          _submit(nome.text, email.text, password.text);
-                          Navigator.pushNamed(context, '/autenticate');
+                          Submit().submitCadastro(nome.text, email.text, password.text, context);
                         }
                       },
                     ),
@@ -282,18 +277,22 @@ class _NewRegister extends State<Register> {
           ),
         ),
       ),
-      body:Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          SizedBox(
-              width: 300,
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Image.asset('assets/images/logo_sem_icone.png'),
-              ),
-            ),
-          _formCadastro(),
-        ],
+      body:SingleChildScrollView(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SizedBox(
+                  width: 300,
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Image.asset('assets/images/logo_sem_icone.png'),
+                  ),
+                ),
+              _formCadastro(),
+            ],
+          ),
+        ),
       )
     );
   }

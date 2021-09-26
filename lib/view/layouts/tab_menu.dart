@@ -3,15 +3,15 @@ import 'package:flutter/material.dart';
 // ignore: non_constant_identifier_names
 List<Widget> TabMenu(){
   return const <Tab>[
-    Tab(
-        child: Text('Restaurante',
+      Tab(
+        child: Text('Restaurantes',
             style: TextStyle(
               fontFamily: 'Montserrat',
               fontSize: 21.0,
             )),
       ),
       Tab(
-        child: Text('Meus Restaurantes',
+        child: Text('Trabalho',
             style: TextStyle(
               fontFamily: 'Montserrat',
               fontSize: 21.0,
@@ -23,6 +23,6 @@ List<Widget> TabMenu(){
               fontFamily: 'Montserrat',
               fontSize: 21.0,
             )),
-      )
+      ),
   ];
 }

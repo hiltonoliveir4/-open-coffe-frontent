@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:free_ticket_system_frontend/view/productpage.dart';
 import 'package:free_ticket_system_frontend/view/layouts/tab_menu.dart';
+import 'package:free_ticket_system_frontend/view/meus_restaurantes.dart';
 
 class UserHome extends StatefulWidget {
   const UserHome({Key? key}) : super(key: key);
@@ -46,15 +46,9 @@ class _NewUserHome extends State<UserHome>{
         ),
         body: const TabBarView(
           children: [
-            Center(
-              child: ProductPage()
-            ),
-            Center(
-              child: Text("Meus Restaurante")
-            ),
-            Center(
-              child: Text("Minha conta")
-            ),
+            MeusRestaurantes(),
+            Center(child: Text("Minha Conta")),
+            Center(child: Text("Configurações"))
           ]
         )
       ),
