@@ -9,7 +9,7 @@ Future<void> showMyDialog(String title, String content, context) async {
     barrierDismissible: false, // user must tap button!
     builder: (BuildContext context) {
       return AlertDialog(
-        backgroundColor: Colors.red[300],
+        backgroundColor: Colors.red.shade900,
         title: Padding(
             padding: const EdgeInsets.all(4.0),
             child: Text(title, 
@@ -44,18 +44,18 @@ Future<void> showMyDialog(String title, String content, context) async {
             height: 30,
             width: 70,
             decoration: const BoxDecoration(
-                    color: Colors.green,
+                    color: Colors.white,
                     borderRadius: BorderRadius.all(
                       Radius.circular(40.0),
                     )),
             child: TextButton(
-              child: const Text(
+              child: Text(
                 'OK',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 15,
                   fontFamily: 'Montserrat',
-                  color: Colors.white
+                  color: Colors.red.shade900
                 ),
               ),
               onPressed: () {

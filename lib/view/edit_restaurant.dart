@@ -25,7 +25,7 @@ class _NewEditRestaurante extends State<EditRestaurante>{
   @override
   Widget build(BuildContext context) {
     final idRestaurant = ModalRoute.of(context)!.settings.arguments;
-    Widget _formAddRestaurante(){
+    Widget _formEditRestaurante(){
       return Padding(
         padding: const EdgeInsets.all(16.0),
         child: Form(
@@ -77,7 +77,7 @@ class _NewEditRestaurante extends State<EditRestaurante>{
                   keyboardType: TextInputType.name,
                   decoration: InputDecoration(
                     prefixIcon: const Icon(
-                          Icons.person,
+                          Icons.document_scanner,
                           color: Colors.red,
                         ),
                     hintText: "Descrição",
@@ -130,7 +130,7 @@ class _NewEditRestaurante extends State<EditRestaurante>{
           nome.text = restaurante.data['name'];
           descricao.text = restaurante.data['description'];
           children.add(
-            _formAddRestaurante()
+            _formEditRestaurante()
           );
           children.add(
             Center(
@@ -170,7 +170,7 @@ class _NewEditRestaurante extends State<EditRestaurante>{
                             fontSize: 20,
                           )
                         ),
-                        Icon(Icons.add, size: 40, color: Colors.white,)
+                        Icon(Icons.edit, size: 40, color: Colors.white,)
                       ],
                     ),
                   ),
@@ -191,10 +191,6 @@ class _NewEditRestaurante extends State<EditRestaurante>{
             )
           );
         }
-
-        // children.add(
-
-        // );
 
         return Scaffold(
           appBar: AppBar(
