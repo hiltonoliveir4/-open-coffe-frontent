@@ -19,8 +19,8 @@ class CardInfo extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-    final Color pColor = type == 'info' ? Colors.blue : type == 'sucess' ? Colors.green : type == 'danger' ? Colors.red : Colors.white;
-    final Color sColor = type == 'info' ? Colors.purple : type == 'sucess' ? Colors.cyan : type == 'danger' ? Colors.pink : Colors.white;
+    final Color pColor = type == 'info' ? Colors.blue : type == 'sucess' ? Colors.green : type == 'danger' ? Colors.red : Colors.orange;
+    final Color sColor = type == 'info' ? Colors.purple : type == 'sucess' ? Colors.cyan : type == 'danger' ? Colors.pink : Colors.yellow.shade500;
 
     return Card(
       color: Colors.transparent,
@@ -29,7 +29,7 @@ class CardInfo extends StatelessWidget{
         splashColor: pColor,
         onTap: (){
           // ignore: todo
-          Navigator.pushNamed(context, routeName); //TODO: enviar parametro
+          Navigator.pushNamed(context, routeName, arguments: param);
         },
         child: Container(
             height: 150,

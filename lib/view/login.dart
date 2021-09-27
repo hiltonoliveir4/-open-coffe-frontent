@@ -136,11 +136,11 @@ class _NewLogin extends State<Login> {
                       ),
                     ),
                     onPressed: () {
-                    if (_formKey.currentState!.validate()) {
-                      //enviar para a api e mostrar o circular progress bar
-                      Submit().submitLogin(email.text, password.text, context);
-                    }
-                  },
+                      if (_formKey.currentState!.validate()) {
+                        //enviar para a api e mostrar o circular progress bar
+                        Submit().submitLogin(email.text, password.text, context);
+                      }
+                    },
                   ),
                 ),
               ),

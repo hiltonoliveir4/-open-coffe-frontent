@@ -24,9 +24,49 @@ class _NewMeusRestaurantes extends State<MeusRestaurantes>{
                 color: Color(0XFF22272E),
                 fontFamily: 'Montserrat',
                 fontWeight: FontWeight.w900,
-                fontSize: 25
+                fontSize: 30
               ),
             ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 15.0, horizontal: 8.0),
+            child: Container(
+              height: 50,
+              decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(24),
+              gradient: const LinearGradient(
+                colors: [Colors.green, Colors.lightGreen],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight
+              ),
+              boxShadow: const [
+                BoxShadow(
+                  color: Colors.green,
+                  blurRadius: 12,
+                  offset: Offset(0,6),
+                )
+              ]
+            ),
+              child: InkWell(
+                splashColor: Colors.green,
+                onTap: (){
+                  Navigator.pushNamed(context, '/add-restaurante');
+                },
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                    Text( "Adicionar novo", style: TextStyle(
+                        fontFamily: 'Montserrat',
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                      )
+                    ),
+                    Icon(Icons.add, size: 40, color: Colors.white,)
+                  ],
+                ),
+              ),
+            )
           )
         ];
         if(listRestaurantes.hasData){
@@ -37,9 +77,9 @@ class _NewMeusRestaurantes extends State<MeusRestaurantes>{
                   child: CardInfo(
                     title: "${lanchonete['name']}",
                     description: "${lanchonete['description']}",
-                    routeName: "teste",
+                    routeName: "/restaurant",
                     type: "danger",
-                    param: "teste",
+                    param: "${lanchonete['id']}",
                   ),
                 )
             );
@@ -47,17 +87,17 @@ class _NewMeusRestaurantes extends State<MeusRestaurantes>{
         } else {
           children.add(
             const Padding(
-              padding: EdgeInsets.all(20.0),
-              child: CircularProgressIndicator(
-                color: Colors.red,
-                strokeWidth: 8.0,
+              padding: EdgeInsets.only(top: 50.0),
+              child: Center(
+                child: CircularProgressIndicator(
+                  color: Colors.red,
+                  strokeWidth: 7.0,
+                ),
               ),
             )
           );
         }
-
         children.add(const SizedBox(height: 15,));
-
         return SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
