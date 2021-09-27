@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:free_ticket_system_frontend/model/logout.dart';
 import 'package:free_ticket_system_frontend/view/layouts/tab_menu.dart';
 import 'package:free_ticket_system_frontend/view/meu_trabalho.dart';
 import 'package:free_ticket_system_frontend/view/meus_restaurantes.dart';
@@ -32,8 +33,11 @@ class _NewUserHome extends State<UserHome>{
               ),
           actions: [
             IconButton(
-              onPressed: (){},
-              icon: const Icon(Icons.notifications_none)
+              onPressed: (){
+                loggout(context);
+              },
+              color: const Color(0XFF121212),
+              icon: const Icon(Icons.logout)
             )
           ],
           bottom: TabBar(

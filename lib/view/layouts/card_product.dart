@@ -14,7 +14,7 @@ class BuildCard extends StatefulWidget{
   : super(key: key);
 
   @override
-  _NewBuildCard createState() => _NewBuildCard( price, name, id, edit);
+  _NewBuildCard createState() => _NewBuildCard(price, name, id, edit);
 }
 
 class _NewBuildCard extends State<BuildCard>{
@@ -30,26 +30,14 @@ class _NewBuildCard extends State<BuildCard>{
   @override
   Widget build(BuildContext context) {
     List<Widget> children = [];
-    children.add(Hero(
-        tag: name,
-        child: SizedBox(
-          height: 75.0,
-          width: 75.0,
-          child: Image.asset("assets/images/lasanha.png"),
-        )
-      )
-    );
 
-    children.add(
-      const SizedBox(height: 7.0)
-    );
     children.add(
       Text("R\$ $price",
         style: const TextStyle(
-            color: Color(0xFFFF2222),
+            color: Color(0xFFFFFFFF),
             fontFamily: 'Montserrat',
             fontWeight: FontWeight.bold,
-            fontSize: 16.0)
+            fontSize: 20.0)
       )
     );
     children.add(
@@ -58,12 +46,6 @@ class _NewBuildCard extends State<BuildCard>{
             color: Color(0xFF121212),
             fontFamily: 'Montserrat',
             fontSize: 14.0)
-      ),
-    );
-    children.add(
-      Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Container(color: const Color(0xFFCCCCCC), height: 1.0)
       ),
     );
 
@@ -83,14 +65,14 @@ class _NewBuildCard extends State<BuildCard>{
                   }
                 }, 
                 icon: const Icon(Icons.remove,
-                    color: Color(0xFFFF2222), size: 12.0),
+                    color: Color(0xFFFFFFFF), size: 18.0),
               ),
                 Text('$qtde',
                     style: const TextStyle(
                     fontFamily: 'Montserrat',
-                    color: Color(0xFFFF2222),
+                    color: Color(0xFFFFFFFF),
                     fontWeight: FontWeight.bold,
-                    fontSize: 12.0)),
+                    fontSize: 18.0)),
               IconButton(
                 onPressed: (){
                   setState(() {
@@ -98,7 +80,7 @@ class _NewBuildCard extends State<BuildCard>{
                     });
                 }, 
                 icon: const Icon(Icons.add,
-                    color: Color(0xFFFF2222), size: 12.0),
+                    color: Color(0xFFFFFFFF), size: 18.0),
               ),
               ],
           ),
@@ -108,7 +90,7 @@ class _NewBuildCard extends State<BuildCard>{
         TextButton(
           onPressed: (){
             if(qtde > 0){
-              showMyDialog("Produto adicionado ao carrinho", "", context);
+              showMyDialog("Produto adicionado ao pedido", "", context);
               setState(() {
                 qtde = 0;
               });
@@ -120,17 +102,18 @@ class _NewBuildCard extends State<BuildCard>{
           child: Padding(
             padding: const EdgeInsets.only(left: 5.0, right: 5.0),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: const [
                 Icon(Icons.shopping_basket,
-                    color: Color(0xFFFF2222), size: 12.0),
-                Text('Adicionar ao carrinho',
+                    color: Color(0xFF121212), size: 12.0),
+                Text('Adicionar ao pedido',
                     style: TextStyle(
                         fontFamily: 'Montserrat',
-                        color: Color(0xFFFF2222),
+                        fontWeight: FontWeight.bold,
+                        color: Color(0xFF121212),
                         fontSize: 12.0))
-                  ]
-                ),
+              ]
+            ),
           ),
         )
       );
@@ -145,15 +128,17 @@ class _NewBuildCard extends State<BuildCard>{
             child: Padding(
               padding: const EdgeInsets.only(left: 5.0, right: 5.0),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: const [
                   Icon(Icons.edit,
-                      color: Color(0xFFFF2222), size: 12.0),
+                      color: Color(0xFFFFFFFF), size: 12.0),
+                  SizedBox(width: 5,),
                   Text('Editar',
                       style: TextStyle(
                           fontFamily: 'Montserrat',
-                          color: Color(0xFFFF2222),
-                          fontSize: 12.0))
+                          color: Color(0xFFFFFFFF),
+                          fontSize: 16.0,
+                          fontWeight: FontWeight.bold))
                     ]
                   ),
             ),
@@ -163,21 +148,41 @@ class _NewBuildCard extends State<BuildCard>{
     }
 
     return Padding(
-    padding: const EdgeInsets.only(top: 5.0, bottom: 5.0, left: 5.0, right: 5.0),
-    child: Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(15.0),
-        boxShadow: [
-          BoxShadow(
-              color: Colors.grey.withOpacity(0.2),
-              spreadRadius: 3.0,
-              blurRadius: 5.0)
-        ],
-        color: Colors.white),
-        child: Column(
-          children: children
+      padding: const EdgeInsets.only(top: 5.0, bottom: 5.0, left: 5.0, right: 5.0),
+        child: Container(
+        decoration: 
+          BoxDecoration(
+            borderRadius: BorderRadius.circular(24),
+            gradient: const LinearGradient(
+              colors: [Colors.yellow, Colors.orange],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight
+            ),
+            boxShadow: const [
+              BoxShadow(
+                color: Colors.orange,
+                blurRadius: 12,
+                offset: Offset(0,6),
+              )
+            ]
+          ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 18.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: children
+              ),
+            ),
+            const Icon(Icons.restaurant_outlined, 
+              size: 35,
+              color: Colors.white,)
+          ],
+        ),
       )
-    )
-  );
+    );
   }
 }

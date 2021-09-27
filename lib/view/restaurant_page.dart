@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:free_ticket_system_frontend/model/getter.dart';
+import 'package:free_ticket_system_frontend/model/logout.dart';
 
 import 'layouts/card_product.dart';
 
@@ -195,21 +196,12 @@ class _NewRestaurantPage extends State<RestaurantPage>{
           });
 
           children.add(
-            Center(
-              child: Container(
-                padding: const EdgeInsets.only(right: 5.0, left: 5.0, bottom: 75.0),
-                  width: MediaQuery.of(context).size.width - 30.0,
-                  height: MediaQuery.of(context).size.height,
-                  child: GridView.count(
-                    crossAxisCount: 2,
-                    primary: false,
-                    crossAxisSpacing: 10.0,
-                    mainAxisSpacing: 15.0,
-                    childAspectRatio: 0.8,
-                    children: childrenProdutos
-                  )
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                children: childrenProdutos,
               ),
-            ),
+            )
           );
         } else {
           children.add(
@@ -238,9 +230,11 @@ class _NewRestaurantPage extends State<RestaurantPage>{
             ),
             actions: [
               IconButton(
-                onPressed: (){},
+                onPressed: (){
+                  loggout(context);
+                },
                 color: const Color(0XFF121212),
-                icon: const Icon(Icons.notifications_none)
+                icon: const Icon(Icons.logout)
               )
             ],
           ),

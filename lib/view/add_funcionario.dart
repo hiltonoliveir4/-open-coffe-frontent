@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:free_ticket_system_frontend/model/logout.dart';
 import 'package:free_ticket_system_frontend/model/submit.dart';
 
 class AddFuncionario extends StatefulWidget{
@@ -95,9 +96,11 @@ class _NewAddFuncionario extends State<AddFuncionario>{
         ),
         actions: [
           IconButton(
-            onPressed: (){},
+            onPressed: (){
+              loggout(context);
+            },
             color: const Color(0XFF121212),
-            icon: const Icon(Icons.notifications_none)
+            icon: const Icon(Icons.logout)
           )
         ],
       ),

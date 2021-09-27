@@ -19,16 +19,33 @@ class _NewMeuTrabalho extends State<MeuTrabalho>{
         List<Widget> children = [];
         if(productList.hasData){
           if(productList.data.toList().length > 0){
-            productList.data.toList().forEach((item) {
+            if(productList.data.toList()[0] == 500){
               children.add(
-                BuildCard(
-                  name:item['name'],
-                  price: item['preco'],
-                  id: item['id'],
-                  edit: false
-                )
+                const Padding(
+                  padding: EdgeInsets.all(8.0),
+                    child: Center(
+                      child: Text('Ainda não há solicitação de trabalhos para você', style: TextStyle(
+                          fontFamily: 'Montserrat',
+                          color: Color(0XFF121212),
+                          fontWeight: FontWeight.bold,
+                          fontSize: 25,
+                      )
+                  ),
+                    ),
+                ),
               );
-            });
+            } else {
+              productList.data.toList().forEach((item) {
+                children.add(
+                  BuildCard(
+                    name:item['name'],
+                    price: item['preco'],
+                    id: item['id'],
+                    edit: false
+                  )
+                );
+              });
+            }
           } else {
             children.add(
               const CardInfo(
@@ -40,7 +57,6 @@ class _NewMeuTrabalho extends State<MeuTrabalho>{
               )
             );
           }
-          
         } else {
           children.add(
             const Padding(
@@ -55,23 +71,11 @@ class _NewMeuTrabalho extends State<MeuTrabalho>{
           );
         }
         return Scaffold(
-          body: ListView(
-            children: [
-              const SizedBox(height: 15.0,),
-              Container(
-                padding: const EdgeInsets.only(right: 5.0, left: 5.0, bottom: 75.0),
-                  width: MediaQuery.of(context).size.width - 30.0,
-                  height: MediaQuery.of(context).size.height - 50.0,
-                  child: GridView.count(
-                    crossAxisCount: 2,
-                    primary: false,
-                    crossAxisSpacing: 10.0,
-                    mainAxisSpacing: 15.0,
-                    childAspectRatio: 0.8,
-                    children: children
-                  )
-              ),
-            ],
+          body: Padding(
+            padding: const EdgeInsets.all(15.0),
+            child: ListView(
+              children: children,
+            ),
           ),
         );
       }

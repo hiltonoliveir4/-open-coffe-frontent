@@ -151,7 +151,7 @@ class Getter{
     } on DioError catch (e){
       if (e.response != null){
         // ignore: avoid_print
-        print(e.response);
+        return [500];
       } else {
         // ignore: avoid_print
         print(e);
